@@ -42,6 +42,8 @@ class Concerns2Controller extends Controller
         $concern->priority = $request->priority;
         $concern->status = $request->status;
         $concern->receiver2 = $request->receiver2;
+        $concern->comment = $request->comment;
+
         // $request = $request->all();
         // $concern = extract_field_to_save($concern,$request);
 

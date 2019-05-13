@@ -26,6 +26,8 @@ class CreateConcernsTable extends Migration
             $table->string('sub_category')->nullable();
             $table->text('problem')->nullable();
             $table->text('before')->nullable();
+              $table->text('comment')->nullable();
+
             
             $table->timestamps();
         });

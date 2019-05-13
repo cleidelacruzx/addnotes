@@ -81,7 +81,7 @@ class ConcernController extends Controller
 
         $concern = new Concern;
         $concern->prob_category = $request->prob_category;
-         $concern->reporter = $request->reporter;
+        $concern->reporter = $request->reporter;
         $concern->sub_category = $request->sub_category;
         $concern->problem = $request->problem;
         $concern->before = $request->before;
@@ -90,19 +90,12 @@ class ConcernController extends Controller
         $concern->receiver2 = $request->receiver2;
         $concern->comment = $request->comment;
        
-
-   
-
         $concern->save();
         $concern->users()->sync($request->admins, false);
         $concern->users()->sync($request->clients, false);
 
-
         session()->flash('status', 'Successfully saved');
         session()->flash('type', 'success');
-
-
-        
 
         return redirect()->route('admin.concern.index');
     }
@@ -141,7 +134,6 @@ class ConcernController extends Controller
      */
     public function update(Request $request, Concern $concern)
     {
-       
 
         // $request->validate([
         //  'priority' => 'required',
@@ -153,12 +145,8 @@ class ConcernController extends Controller
         // $concern2->priority = $request->priority;
         // $concern2->status = $request->status;
         // $concern2->receiver2 = $request->receiver2;
-         $concern->comment = $request->comment;
+        $concern->comment = $request->comment;
 
-
-
-  
-    
 
         $concern->save();
         

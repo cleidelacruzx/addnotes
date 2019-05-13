@@ -71,6 +71,7 @@
                                 <th class="th-sm">Problem</th>
                                 <th class="th-sm">Before Problem</th>
                                 <th class="th-sm">Remarks</th>
+                                <th class="th-sm">Notes</th>
                                 <th class="th-sm">Action</th>
                             </tr>
                         </thead>
@@ -85,11 +86,10 @@
                                  <tr>
                                 <td>{{$data->ticket}}</td>
                                 <td>{{$data->created_at}}</td>
-                                <td>{{$data->created_at}}</td>
                                 <td>
                                 {{ \App\User::where('id', $data->reporter)->value('firstName') }}
                                 {{ \App\User::where('id', $data->reporter)->value('lastName') }}
-                        </td>
+                                </td>
                                  <td>
 
                                    <!--  @foreach ($data->users as $key => $user)
@@ -122,15 +122,21 @@
                                 {{ $data->priority }}</td>
 
                                 <td>{{$data->status}}</td>
-                                
-                                 <td><pre>{{$data->problem}}<pre></td>
+                                <td><pre>{{$data->problem}}<pre></td>
                                 <td><pre>{{$data->before}}<pre></td>
-                                <td>{{$data->remark}}</td>
-
+                                <td>{{$data->remark}}
+                                <td><pre>{{$data->comment}}</pre></td>
                                 <td>
                                     <a href="{{route('admin.concern.edit', $data->id)}}" class="blue-text mr-3" data-toggle="tooltip" title="Edit" data-placement="left"><i class="fa fa-pencil"></i></a>
+
+                                    <a href="{{route('admin.concern.show', $data->id)}}" class="blue-text mr-3" data-toggle="tooltip" title="Add Notes" data-placement="left"><i class="fa fa-envelope"></i></a>
+
                                     <a href="javascript:void(0);" data-href="{{ route('admin.concern.destroy', $data->id) }}" class="anchor_delete text-danger" data-method="delete" data-action="concern" data-from="concern" data-toggle="tooltip" title="Delete" data-placement="right"><i class="fa fa-trash"></i></a> 
                                 </td>
+                            </td>
+                        </td>
+                    </td>
+
                             </tr>    
                             @endforeach
                         </tbody>
